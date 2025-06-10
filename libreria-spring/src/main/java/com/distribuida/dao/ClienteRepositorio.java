@@ -8,5 +8,7 @@ import org.springframework.stereotype.Repository;
 public interface ClienteRepositorio extends JpaRepository<Cliente,Integer> {
 
 
+
+
     public Cliente findByCedula(String cedula);
 }

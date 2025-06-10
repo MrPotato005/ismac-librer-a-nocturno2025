@@ -1,21 +1,39 @@
 package com.distribuida.model;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "autor")
+
 public class Autor {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_autor")
     private int idAutor;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "apellido")
     private String apellido;
-    private String nacionalidad;
+    @Column(name = "pais")
+    private String pais;
+    @Column(name = "direccion")
+    private String direccion;
+    @Column(name = "telefono")
+    private String telefono;
+    @Column(name = "correo")
     private String correo;
 
     public Autor() {
     }
 
-    public Autor(int idAutor, String nombre, String apellido, String nacionalidad, String correo) {
+    public Autor(int idAutor, String nombre, String apellido, String pais, String direccion, String telefono, String correo) {
         this.idAutor = idAutor;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.nacionalidad = nacionalidad;
+        this.pais = pais;
+        this.direccion = direccion;
+        this.telefono = telefono;
         this.correo = correo;
     }
 
@@ -43,12 +61,28 @@ public class Autor {
         this.apellido = apellido;
     }
 
-    public String getNacionalidad() {
-        return nacionalidad;
+    public String getPais() {
+        return pais;
     }
 
-    public void setNacionalidad(String nacionalidad) {
-        this.nacionalidad = nacionalidad;
+    public void setPais(String pais) {
+        this.pais = pais;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getCorreo() {
@@ -65,7 +99,9 @@ public class Autor {
                 "idAutor=" + idAutor +
                 ", nombre='" + nombre + '\'' +
                 ", apellido='" + apellido + '\'' +
-                ", nacionalidad='" + nacionalidad + '\'' +
+                ", pais='" + pais + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", telefono='" + telefono + '\'' +
                 ", correo='" + correo + '\'' +
                 '}';
     }
