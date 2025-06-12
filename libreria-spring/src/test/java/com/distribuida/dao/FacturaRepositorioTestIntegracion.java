@@ -62,12 +62,20 @@ private ClienteRepositorio clienteRepositorio;
     public void save(){
           Optional<Cliente> cliente = clienteRepositorio.findById(1);
        Factura factura = new Factura(0,"FAC-0099", new Date(), 100.00, 15.00,115.00,cliente.orElse(null));
-       facturaRepositorio.save(factura);
+       Factura facturaGuardada = facturaRepositorio.save(factura);
+       assertNotNull(facturaGuardada);
+       assertEquals("FAC-0099",facturaGuardada.getNumFactura());
+       assertEquals(115.0,facturaGuardada.getTotal());
+
+
+
+
+
 
       }
 @Test
     public void update(){
-          Optional<Factura> factura = facturaRepositorio.findById(86);
+          Optional<Factura> factura = facturaRepositorio.findById(87);
           Optional<Cliente> cliente = clienteRepositorio.findById(2);
           factura.orElse(null).setNumFactura("FAC-00100");
     factura.orElse(null).setFecha(new Date());
@@ -76,9 +84,10 @@ private ClienteRepositorio clienteRepositorio;
     factura.orElse(null).setTotal(230.00);
     factura.orElse(null).setCliente(cliente.orElse(null));
 
-    facturaRepositorio.save(factura.orElse(null));
-
-
+    Factura facturaActualizada = facturaRepositorio.save(factura.orElse(null));
+    assertNotNull(facturaActualizada);
+    assertEquals("FAC-00100",facturaActualizada.getNumFactura());
+    assertEquals(230.0,facturaActualizada.getTotal());
 
 
 }
@@ -86,9 +95,10 @@ private ClienteRepositorio clienteRepositorio;
 
     public void delete(){
 
-          if (facturaRepositorio.existsById(86)){
-              facturaRepositorio.deleteById(86);
+          if (facturaRepositorio.existsById(87)){
+              facturaRepositorio.deleteById(87);
           }
+          assertFalse(facturaRepositorio.existsById(87));
 
 }
 
