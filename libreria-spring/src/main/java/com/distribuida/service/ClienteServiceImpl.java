@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Service  //Esto es un Bean para logica de negocio
 
-public class ClienteServiceImpl implements ClienteService{
+public class    ClienteServiceImpl implements ClienteService{
 
 
     @Autowired  //ESTA anotacion permite inyectar beans (inyeccion de dependencias)

@@ -61,7 +61,7 @@ return  ResponseEntity.ok(clienteNuevo);
 
     public ResponseEntity<Void> delete(@PathVariable int id){
     clienteService.delete(id);
-    return ResponseEntity.notFound().build();
+    return ResponseEntity.noContent().build();
 
 
 
