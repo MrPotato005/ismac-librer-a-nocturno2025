@@ -12,9 +12,6 @@ import java.util.List;
 @RequestMapping("/api/facturas")
 public class FacturaController {
 
-
-
-
     @Autowired
     private FacturaService facturaService;
 
