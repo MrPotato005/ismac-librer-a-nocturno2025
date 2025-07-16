@@ -32,7 +32,6 @@ public class Factura {
     @ManyToOne
     @JoinColumn (name = "id_cliente")
 
-
     private Cliente cliente;
 
 
